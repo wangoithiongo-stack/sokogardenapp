@@ -1,30 +1,31 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { Form } from 'react-router-dom'
 
 const Signup = () => {
 
-  // Below are our hooks that enables us to store the state of our application
-  const[username, setUsername]=useState("")
-  const[email, setEmail]=useState("")
-  const[password,setPassword]=useState("")
-  const[phone,setPhone]=useState("")
+  // Step 1 : Below are our hooks that enables us to store the state of our application
+  const [username, setUsername] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [phone, setPhone] = useState("")
 
-  // Three additional hooks
-  const[loading,setLoading]=useState("")
-  const[error,setError]=useState("")
-  const[success,setSuccess]=useState("")
+  // Step 3 : Three additional hooks
+  const [loading, setLoading] = useState("")
+  const [error, setError] = useState("")
+  const [success, setSuccess] = useState("")
 
-  // Below is our function
-  const handlesubmit = async (e) =>{
-    // Prevent defaults - This means you are preventing the browser from reloading when a user submits details for registraion
+  // Step 4 : Below is our function
+  const handlesubmit = async (e) => {
+
+    // Step 5 : Prevent defaults - This means you are preventing the browser from reloading when a user submits details for registraion
     e.preventDefault()
 
     // Step 6 : Update loading hook
     setLoading("Registration in progress...")
 
     // Step 7 : Try catch block
-    try{
+    try {
+
       // Step 8 : Create a form data object
       const formData = new FormData()
 
@@ -47,8 +48,9 @@ const Signup = () => {
       setPassword("")
       setPhone("")
     }
-    catch(error){
-      
+
+    catch (error) {
+
       // Step 13 
       setLoading("")
       setError("Oops!, something happened. Please try again later...")
@@ -67,46 +69,47 @@ const Signup = () => {
           <h4 className='text-success'>{success}</h4>
           <h4 className='text-danger'>{error}</h4>
 
-          <input type="text" 
-          placeholder='Enter your username' 
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          className='form-control' /> 
+          {/* Step 2 : Test ur hooks */}
+          <input type="text"
+            placeholder='Enter your username'
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            className='form-control' />
 
           {/* {username} */}
-          <br/>
+          <br />
 
-          <input type="email" 
-          placeholder='Enter your email address' 
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className='form-control'/> 
+          <input type="email"
+            placeholder='Enter your email address'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className='form-control' />
 
           {/* {email} */}
-          <br/>
+          <br />
 
           <input type="password"
-           placeholder='Enter password'
-           value={password}
-           onChange={(e) => setPassword(e.target.value)}
-            className='form-control' /> 
+            placeholder='Enter password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className='form-control' />
 
-             {/* {password} */}
-            <br/>
+          {/* {password} */}
+          <br />
 
-          <input type="tel" 
-          placeholder='Enter phone number' 
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          className='form-control' /> 
+          <input type="tel"
+            placeholder='Enter phone number'
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            className='form-control' />
 
           {/* {phone} */}
-          <br/>
-      
+          <br />
+
           <input type="submit"
-           value="Signup" 
-           className='btn btn-outline-primary' />
-        
+            value="Signup"
+            className='btn btn-outline-primary' />
+
         </form>
       </div>
 
