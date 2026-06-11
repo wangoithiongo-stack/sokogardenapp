@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Signin = () => {
 
@@ -11,6 +12,9 @@ const Signin = () => {
   const [loading,setLoading] = useState("")
   const [success,setSuccess] = useState("")
   const [error,setError] = useState("")
+
+  // Step 14 : create a useNavigate hook that will enable you to redirect users to the homepage 
+    const navigate = useNavigate()
 
   // Step 4 : Create a function handle submit action
   const handlesubmit = async(e) =>{
@@ -39,10 +43,12 @@ const Signin = () => {
       // Step 12 : By use of an if statement, check whether there is a success message given back as a response from the hosted API. If there is it means the user has entered correct details and needs to be redirected to another page. If there is no message given back,give a response to the user meaning the details he entered are incorrect.
 
       if(response.data.success === "Welcome"){
-        setSuccess("Login successful")
+        // setSuccess("Login successful")
+        // Below we redirect our users to the homepage
+        navigate("/")
       }
       else{
-        setSuccess("Login denied!")
+        setError("Login denied!")
       }
     }
 
