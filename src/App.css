@@ -37,4 +37,20 @@
   }
 }
 
+.product-img{
+  object-fit: contain;
+  height: 200px;
+  width: 80%;
+}
+
+.prodName{
+  color: rgb(160, 46, 46);
+}
+.prodDesc{
+  color: rgb(199, 140, 31);
+}
+.prodCost{
+  color: rgb(199, 140, 31);
+  font-weight: 700;
+}
 
